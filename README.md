@@ -68,6 +68,6 @@ All these functions are pass/fail, and will just revert if there is any issue. C
 
 ## Important notes
 
-This is a PoC, and while I have significant experience writing secure solidity, I have not written comprehensive tests for this so there may be bugs, and there are some missing features that are not worth putting in for the "general" case. If you plan to use this, reach out to me on twitter or via email and I can sanity check your use case or modifications.
+This is a PoC, and while I have significant experience writing secure solidity, I have not written comprehensive tests for this so there may be bugs, and there are some missing features that are not worth putting in for the "general" case. If you plan to use this, reach out to me on twitter [@matthewdif](https://twitter.com/matthewdif) or via email (matthew@zklabs.io) and I can sanity check your use case or modifications.
 
 Also very important - **DO NOT** modify this code to allow the borrower to move their tokens. You might think that it's okay given that the NFT contract can always "forcefully take back" the token at the end of the loan term, regardless of where it has been moved to - but this is a very dangerous thing to enable, as the borrower could then list and sell the token on a platform like OpenSea, or sell it to a smart contract, and have the buyer be rugged at the end of the loan term when the NFT they just bought disappears from their wallet or from the smart contract.
