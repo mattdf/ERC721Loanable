@@ -6,7 +6,7 @@ This removes the risk of the borrower being able to "run off" with the NFT they'
 
 An added bonus is that there is no need for any extra "approve" transactions to enable entering into a loan, since the NFT contract has control over all internal transfers by default.
 
-The code supports both off-chain offer book style creation (like 0x) through signatures, and on-chain creation and matching to enable smart contracts to list and lend/borrow NFTs (since smart contracts can't sign). It would be possible to make this actually compatible with 0x, but I did not have time to look into it that deeply.
+The code supports both off-chain offer book style creation (like [0x Protocol](https://0x.org/)) through signatures, and on-chain creation and matching to enable smart contracts to list and lend/borrow NFTs (since smart contracts can't sign). It would be possible to make this actually compatible with 0x, but I did not have time to look into it that deeply. Left as an exercise to the reader.
 
 It adds the following functions to the standard contract:
 
