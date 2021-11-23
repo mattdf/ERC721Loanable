@@ -2,7 +2,7 @@
 
 This repo contains an extension to the ERC721 token standard that allows the deployment of NFTs that users can loan out risk-free in exchange for an up-front premium. Due to the loan functionality being built in to the NFT contract, a restriction can be added that prevents the transfer of tokens that are "under loan", and the contract is able to take back the NFT from the borrower's address at the end of the loan term.
 
-This removes the risk of the borrower being able to "run off" with the NFT they've been lent by not paying the loan, and allow for much more capital efficient lending - the borrower does not need to put down collateral that is equal to >100% the value NFT - they only need to pay the loan interest or premium for the requested term.
+This removes the risk of the borrower being able to "run off" with the NFT they've been lent by not paying the loan interest, and allow for much more capital efficient lending - the borrower does not need to put down collateral that is equal to >100% the value NFT - they only need to pay the loan interest or premium for the requested term.
 
 An added bonus is that there is no need for any extra "approve" transactions to enable entering into a loan, since the NFT contract has control over all internal transfers by default.
 
