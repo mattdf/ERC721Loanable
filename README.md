@@ -12,33 +12,38 @@ It adds the following functions to the standard contract:
 
 ```solidity
 
-    /* function that loans a token based on a signature by the lender */
+/* function that loans a token based on a signature by the lender */
 
-    function takeSignedLoan(LoanTerms calldata _lt, bytes memory _sig) public;
+function takeSignedLoan(LoanTerms calldata _lt, bytes memory _sig) public;
 
-    /* function to take a loan that has been registered via call (from a contract) */
+/* function to take a loan that has been registered via call (from a contract) */
 
-    function takeRegisteredLoan(LoanTerms calldata _lt) public;
+function takeRegisteredLoan(LoanTerms calldata _lt) public;
 
-    /* function for smart contracts to lend tokens they own since they are unable to create signatures */
+/* function for smart contracts to lend tokens they own since they cannot create signatures */
 
-    function registerLoanOffer(LoanTerms calldata _lt) public;
+function registerLoanOffer(LoanTerms calldata _lt) public;
 
-    /* function for lender to manually take back NFT */
+/* function for lender to manually take back NFT */
 
-    function closeLoan(LoanTerms calldata _lt) public;
+function closeLoan(LoanTerms calldata _lt) public;
 
-    /* function that allows anyone to return a lender's outstanding NFT for a fee reward - note that this function has some subtle externalities */
+/* function that allows anyone to return a lender's outstanding NFT for a */
+/* reward - note that this function has some subtle externalities */
 
-    function closeLoanIncentivized(LoanTerms calldata _lt) public;
+function closeLoanIncentivized(LoanTerms calldata _lt) public;
 
-    /* allows EOA lender and borrower to renegotiate loan close */
+/* allows EOA lender and borrower to renegotiate loan close */
 
-    function closeLoanEarly(LoanTerms calldata _lt, uint256 refund, bytes memory _lenderSig, bytes memory _borrowerSig) public;
+function closeLoanEarly(
+        LoanTerms calldata _lt,
+        uint256 refund,
+        bytes memory _lenderSig,
+        bytes memory _borrowerSig) public;
 
-    /* explicitly cancel a loan that hasn't timed out yet */
+/* explicitly cancel a loan that hasn't timed out yet */
 
-    function cancelLoan(LoanTerms calldata _lt) public;
+function cancelLoan(LoanTerms calldata _lt) public;
 
 ```
 
@@ -46,17 +51,17 @@ The `LoanTerms` structure is what is signed and passed into the functions and en
 
 ```solidity
 
-    struct LoanTerms {
-        address from;
-        address to;
-        IERC20 premiumToken;
-        uint256 tokenId;
-        uint256 premiumAmount;
-        uint256 loanExpiry;
-        uint256 closeFeeReward;
-        uint256 offerDeadline;
-        uint256 nonce;
-    }
+struct LoanTerms {
+    address from;
+    address to;
+    IERC20 premiumToken;
+    uint256 tokenId;
+    uint256 premiumAmount;
+    uint256 loanExpiry;
+    uint256 closeFeeReward;
+    uint256 offerDeadline;
+    uint256 nonce;
+}
 ```
 
 All these functions are pass/fail, and will just revert if there is any issue. Contracts should not try to catch the revert unless they are confident about the end to end control flow.
